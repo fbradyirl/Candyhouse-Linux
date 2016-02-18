@@ -51,6 +51,7 @@ openwrt3420:: openwrt-tplink-3420
 
 	#@echo CONFIG_PACKAGE_luci-app-sqm=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-openvpn=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_openvpn-openssl=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-wol=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-mod-rpc=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-ddns=y >> openwrt/.config
