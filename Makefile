@@ -56,8 +56,9 @@ openwrt3420:: openwrt-tplink-3420
 	@echo CONFIG_PACKAGE_luci-mod-rpc=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-ddns=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_picocom=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_luci-app-watchcat=y >> openwrt/.config
-
+	#@echo CONFIG_PACKAGE_luci-app-watchcat=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_luci-theme-material=y >> openwrt/.config
+	 
 	touch $@
 
 openwrt-kirkwood-ea4500: .openwrt_luci
@@ -68,7 +69,7 @@ openwrt-kirkwood-ea4500: .openwrt_luci
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
 	cd openwrt && make defconfig
-	cd openwrt && make -j4
+	cd openwrt && make -j1
 
 	mkdir -p artifacts
 	cp openwrt/bin/kirkwood/*.bin artifacts/
@@ -83,7 +84,7 @@ openwrt-kirkwood-ea3500: .openwrt_luci
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
 	cd openwrt && make defconfig
-	cd openwrt && make -j4
+	cd openwrt && make -j1
 
 	mkdir -p artifacts
 	cp openwrt/bin/kirkwood/*.bin artifacts/
