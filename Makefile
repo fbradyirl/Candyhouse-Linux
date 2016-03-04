@@ -56,9 +56,10 @@ openwrt3420:: openwrt-tplink-3420
 	@echo CONFIG_PACKAGE_luci-mod-rpc=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-ddns=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_picocom=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_luci-app-watchcat=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-theme-material=y >> openwrt/.config
-	 
+	@echo CONFIG_PACKAGE_dnsmasq-full=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_dnsmasq=n >> openwrt/.config
+
 	touch $@
 
 openwrt-kirkwood-ea4500: .openwrt_luci
