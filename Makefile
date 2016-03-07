@@ -69,9 +69,7 @@ openwrt3420:: openwrt-tplink-3420
 	@echo CONFIG_DEFAULT_ppp-mod-pppoe=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_uqmi=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_kmod-mii=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_luci-proto-3g=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net-rndis=y  >> openwrt/.config
 	@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_chat=y >> openwrt/.config
 	#@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
