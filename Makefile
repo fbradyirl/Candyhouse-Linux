@@ -35,13 +35,13 @@ openwrt3420:: openwrt-tplink-3420
 	@echo "" > openwrt/.config	
 
 	cp openwrt/feeds.conf.default openwrt/feeds.conf
-	@echo "src-git rooter https://github.com/fbradyirl/rooter.git" >> openwrt/feeds.conf
-
-	cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
 
 	# Basic ROOter stuff. Comment these out if you dont need 3G/4G dongle support
-	@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
+	#@echo "src-git rooter https://github.com/fbradyirl/rooter.git" >> openwrt/feeds.conf
+	#cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
+
+	#@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
 
 	touch $@
 
@@ -57,9 +57,26 @@ openwrt3420:: openwrt-tplink-3420
 	@echo CONFIG_PACKAGE_luci-app-ddns=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_picocom=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-theme-material=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_dnsmasq-full=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_dnsmasq=n >> openwrt/.config
+	@echo CONFIG_PACKAGE_curl=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_luci=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_luci-ssl=y >> openwrt/.config
 
+
+	# No Rooter? Use these
+	# Should just need chat comgt-ncm kmod-usb-net-huawei-cdc-ncm (see http://eko.one.pl/forum/viewtopic.php?id=12856 ) 
+	@echo CONFIG_PACKAGE_kmod-usb-wdm=y >> openwrt/.config
+	@echo CONFIG_DEFAULT_ppp=y >> openwrt/.config
+	@echo CONFIG_DEFAULT_ppp-mod-pppoe=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_uqmi=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-mii=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_luci-proto-3g=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_chat=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
+	@echo CONFIG_PACKAGE_usbutils=y >> openwrt/.config
+	
 	touch $@
 
 openwrt-kirkwood-ea4500: .openwrt_luci
