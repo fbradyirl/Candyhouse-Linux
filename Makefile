@@ -24,8 +24,9 @@ openwrt3420:: openwrt-tplink-3420
 
 .openwrt_fetched:
 	# Use trunk for Linksys
-	git clone git://git.openwrt.org/openwrt.git openwrt
-	
+	#git clone git://git.openwrt.org/openwrt.git openwrt
+	git clone -b kirkwood-linksys https://github.com/leitec/openwrt-staging openwrt
+
 	# Use 15.05 for 3420
 	#git clone git://git.openwrt.org/15.05/openwrt.git openwrt
 
@@ -37,11 +38,11 @@ openwrt3420:: openwrt-tplink-3420
 	cp openwrt/feeds.conf.default openwrt/feeds.conf
 
 	# Basic ROOter stuff. Comment these out if you dont need 3G/4G dongle support
-	#@echo "src-git rooter https://github.com/fbradyirl/rooter.git" >> openwrt/feeds.conf
-	#cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
+	@echo "src-git rooter https://github.com/fbradyirl/rooter.git" >> openwrt/feeds.conf
+	cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
 
-	#@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
 
 	touch $@
 
@@ -64,28 +65,29 @@ openwrt3420:: openwrt-tplink-3420
 
 	# No Rooter? Use these
 	# Should just need chat comgt-ncm kmod-usb-net-huawei-cdc-ncm (see http://eko.one.pl/forum/viewtopic.php?id=12856 ) 
-	@echo CONFIG_PACKAGE_kmod-usb-wdm=y >> openwrt/.config
-	@echo CONFIG_DEFAULT_ppp=y >> openwrt/.config
-	@echo CONFIG_DEFAULT_ppp-mod-pppoe=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net-rndis=y  >> openwrt/.config
-	@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_chat=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-wdm=y >> openwrt/.config
+	#@echo CONFIG_DEFAULT_ppp=y >> openwrt/.config
+	#@echo CONFIG_DEFAULT_ppp-mod-pppoe=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net-rndis=y  >> openwrt/.config
+	#@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_chat=y >> openwrt/.config
 	#@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
-	@echo CONFIG_PACKAGE_usbutils=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_usbutils=y >> openwrt/.config
 	
 	touch $@
 
 openwrt-kirkwood-ea4500: .openwrt_luci
 
 	@echo CONFIG_TARGET_kirkwood=y >> openwrt/.config
-	@echo CONFIG_TARGET_kirkwood_VIPER=y >> openwrt/.config
+	#@echo CONFIG_TARGET_kirkwood_VIPER=y >> openwrt/.config
+	@echo CONFIG_TARGET_kirkwood_EA4500=y >> openwrt/.config
 	# Support for Marvell chipset wifi driver
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
 	cd openwrt && make defconfig
-	cd openwrt && make -j1
+	#cd openwrt && make -j1
 
 	mkdir -p artifacts
 	cp openwrt/bin/kirkwood/*.bin artifacts/
