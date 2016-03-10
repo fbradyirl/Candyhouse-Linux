@@ -38,7 +38,7 @@ openwrt3420:: openwrt-tplink-3420
 	cp openwrt/feeds.conf.default openwrt/feeds.conf
 
 	# Basic ROOter stuff. Comment these out if you dont need 3G/4G dongle support
-	@echo "src-git rooter https://github.com/fbradyirl/rooter.git" >> openwrt/feeds.conf
+	@echo "src-git rooter https://github.com/ROOterDairyman/ROOter.git" >> openwrt/feeds.conf
 	cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
 
 	@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
