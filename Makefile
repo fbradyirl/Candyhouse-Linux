@@ -81,8 +81,7 @@ openwrt3420:: openwrt-tplink-3420
 openwrt-kirkwood-ea4500: .openwrt_luci
 
 	@echo CONFIG_TARGET_kirkwood=y >> openwrt/.config
-	#@echo CONFIG_TARGET_kirkwood_VIPER=y >> openwrt/.config
-	@echo CONFIG_TARGET_kirkwood_EA4500=y >> openwrt/.config
+	@echo CONFIG_TARGET_kirkwood_VIPER=y >> openwrt/.config
 	# Support for Marvell chipset wifi driver
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
