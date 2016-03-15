@@ -24,8 +24,8 @@ openwrt3420:: openwrt-tplink-3420
 
 .openwrt_fetched:
 	# Use trunk for Linksys
-	#git clone git://git.openwrt.org/openwrt.git openwrt
-	git clone -b kirkwood-linksys https://github.com/leitec/openwrt-staging openwrt
+	git clone git://git.openwrt.org/openwrt.git openwrt
+	#git clone -b kirkwood-linksys https://github.com/leitec/openwrt-staging openwrt
 
 	# Use 15.05 for 3420
 	#git clone git://git.openwrt.org/15.05/openwrt.git openwrt
@@ -87,7 +87,7 @@ openwrt-kirkwood-ea4500: .openwrt_luci
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
 	cd openwrt && make defconfig
-	#cd openwrt && make -j1
+	cd openwrt && make -j1
 
 	mkdir -p artifacts
 	cp openwrt/bin/kirkwood/*.bin artifacts/
