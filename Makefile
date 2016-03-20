@@ -64,16 +64,18 @@ openwrt3420:: openwrt-tplink-3420
 
 
 	# No Rooter? Use these
-	# Should just need chat comgt-ncm kmod-usb-net-huawei-cdc-ncm (see http://eko.one.pl/forum/viewtopic.php?id=12856 ) 
-	#@echo CONFIG_PACKAGE_kmod-usb-wdm=y >> openwrt/.config
-	#@echo CONFIG_DEFAULT_ppp=y >> openwrt/.config
-	#@echo CONFIG_DEFAULT_ppp-mod-pppoe=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_kmod-usb-net-rndis=y  >> openwrt/.config
-	#@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_chat=y >> openwrt/.config
-	#@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
+	# (see https://forum.openwrt.org/viewtopic.php?pid=315673#p315673 ) 
+	@echo CONFIG_PACKAGE_usbreset=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_eudev=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb2=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-usb-wdm=y  >> openwrt/.config
+	@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_comgt-ncm=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
+	@echo CONFIG_PACKAGE_wwan=y  >> openwrt/.config
 	#@echo CONFIG_PACKAGE_usbutils=y >> openwrt/.config
 	
 	touch $@
