@@ -38,11 +38,11 @@ openwrt3420:: openwrt-tplink-3420
 	cp openwrt/feeds.conf.default openwrt/feeds.conf
 
 	# Basic ROOter stuff. Comment these out if you dont need 3G/4G dongle support
-	@echo "src-git rooter https://github.com/ROOterDairyman/ROOter.git" >> openwrt/feeds.conf
-	cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
+	#@echo "src-git rooter https://github.com/ROOterDairyman/ROOter.git" >> openwrt/feeds.conf
+	#cd openwrt && ./scripts/feeds update rooter && ./scripts/feeds install -a -p rooter
 
-	@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_ext-rooter-basic=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_ext-sms=y >> openwrt/.config
 
 	touch $@
 
@@ -54,28 +54,28 @@ openwrt3420:: openwrt-tplink-3420
 	@echo CONFIG_PACKAGE_luci-app-openvpn=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_openvpn-openssl=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-wol=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_luci-mod-rpc=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_luci-mod-rpc=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-ddns=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_picocom=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_luci-theme-material=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_curl=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_picocom=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_luci-theme-material=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_curl=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_luci-ssl=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_luci-ssl=y >> openwrt/.config
 
 
 	# No Rooter? Use these
 	# (see https://forum.openwrt.org/viewtopic.php?pid=315673#p315673 ) 
-	@echo CONFIG_PACKAGE_usbreset=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_eudev=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb2=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_kmod-usb-wdm=y  >> openwrt/.config
-	@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_comgt-ncm=y >> openwrt/.config
-	@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
-	@echo CONFIG_PACKAGE_wwan=y  >> openwrt/.config
+	#@echo CONFIG_PACKAGE_usbreset=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_eudev=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb2=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_kmod-usb-wdm=y  >> openwrt/.config
+	#@echo CONFIG_PACKAGE_comgt=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_comgt-ncm=y >> openwrt/.config
+	#@echo CONFIG_PACKAGE_usb-modeswitch=y  >> openwrt/.config
+	#@echo CONFIG_PACKAGE_wwan=y  >> openwrt/.config
 	#@echo CONFIG_PACKAGE_usbutils=y >> openwrt/.config
 	
 	touch $@
