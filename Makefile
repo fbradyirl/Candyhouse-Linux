@@ -50,7 +50,7 @@ openwrt3420:: openwrt-tplink-3420
 	cd openwrt && ./scripts/feeds update packages luci && ./scripts/feeds install -a -p luci
 	cd openwrt && ./scripts/feeds update packages packages && ./scripts/feeds install -a -p packages
 
-	#@echo CONFIG_PACKAGE_luci-app-sqm=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_luci-app-sqm=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-openvpn=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_openvpn-openssl=y >> openwrt/.config
 	@echo CONFIG_PACKAGE_luci-app-wol=y >> openwrt/.config
