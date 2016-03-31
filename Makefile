@@ -22,6 +22,8 @@ audi:: openwrt-kirkwood-ea3500
 
 openwrt3420:: openwrt-tplink-3420
 
+openwrthg556a-b:: openwrt-brcm63xx-hg556a-b
+
 .openwrt_fetched:
 	# Use trunk for Linksys
 	git clone git://git.openwrt.org/openwrt.git openwrt
@@ -112,6 +114,22 @@ openwrt-kirkwood-ea3500: .openwrt_luci
 	cp openwrt/bin/kirkwood/*.bin artifacts/
 	cp openwrt/bin/kirkwood/*.tar artifacts/
 	ls -l artifacts
+
+
+# Huawei EchoLife HG556a (version B)
+openwrt-brcm63xx-hg556a-b: .openwrt_luci
+
+	@echo CONFIG_TARGET_brcm63xx=y >> openwrt/.config
+	@echo CONFIG_TARGET_brcm63xx_generic_HG556a_AB=y >> openwrt/.config
+
+	cd openwrt && make defconfig
+	cd openwrt && make -j1
+
+	mkdir -p artifacts
+	cp openwrt/bin/brcm63xx/*.bin artifacts/
+	cp openwrt/bin/brcm63xx/*.tar artifacts/
+	ls -l artifacts
+
 
 openwrt-tplink-3420: .openwrt_luci
 
