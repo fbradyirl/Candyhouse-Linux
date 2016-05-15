@@ -66,7 +66,9 @@ openwrthg556a-b:: openwrt-brcm63xx-hg556a-b
 
 	# Used for https://github.com/richb-hanover/OpenWrtScripts
 	@echo CONFIG_PACKAGE_netperf=y >> openwrt/.config
-	
+		
+	# Used for https://forum.openwrt.org/viewtopic.php?id=62385
+	@echo CONFIG_PACKAGE_iptables-mod-geoip=y >> openwrt/.config
 
 	# No Rooter? Use these
 	# (see https://forum.openwrt.org/viewtopic.php?pid=315673#p315673 ) 
@@ -93,7 +95,7 @@ openwrt-kirkwood-ea4500: .openwrt_luci
 	@echo CONFIG_PACKAGE_kmod-mwl8k=y >> openwrt/.config
 
 	cd openwrt && make defconfig
-	cd openwrt && make -j1
+	cd openwrt && make -j1 V=s
 
 	mkdir -p artifacts
 	cp openwrt/bin/kirkwood/*.bin artifacts/
