@@ -70,6 +70,11 @@ openwrthg556a-b:: openwrt-brcm63xx-hg556a-b
 	# Used for https://forum.openwrt.org/viewtopic.php?id=62385
 	@echo CONFIG_PACKAGE_iptables-mod-geoip=y >> openwrt/.config
 
+	# Used for https://github.com/robzr/sub2rbl
+	@echo CONFIG_PACKAGE_ipset=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_kmod-ipt-ipset=y >> openwrt/.config
+	@echo CONFIG_PACKAGE_ca-certificates=y >> openwrt/.config
+
 	# No Rooter? Use these
 	# (see https://forum.openwrt.org/viewtopic.php?pid=315673#p315673 ) 
 	#@echo CONFIG_PACKAGE_usbreset=y >> openwrt/.config
