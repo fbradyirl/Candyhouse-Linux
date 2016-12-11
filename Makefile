@@ -26,7 +26,7 @@ openwrthg556a-b:: openwrt-brcm63xx-hg556a-b
 
 .openwrt_fetched:
 	# Use trunk for Linksys
-	git clone git://git.openwrt.org/openwrt.git openwrt
+	git clone git@github.com:openwrt/openwrt.git openwrt
 	#git clone -b kirkwood-linksys https://github.com/leitec/openwrt-staging openwrt
 
 	# Use 15.05 for 3420
